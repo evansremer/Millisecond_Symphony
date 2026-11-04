@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project><Template>FPGA</Template><Version>5</Version>
+<Device name="GW5AST-138B" pn="GW5AST-LV138PG484AC1/I0">gw5ast138b-011</Device>
+<FileList>
+<File path="src/apb_bt_uart.v" type="file.verilog" enable="1" />
+<File path="audio/agc_hardclip_21.v" type="file.verilog" enable="1" />
+<File path="audio/agc_parallel_select_21.v" type="file.verilog" enable="1" />
+<File path="src/apb_request_capture.v" type="file.verilog" enable="1" />
+<File path="src/apb_read_data_mux.v" type="file.verilog" enable="1" />
+<File path="src/loop_ddr_probe.v" type="file.verilog" enable="1" />
+<File path="audio/loop_crc32.v" type="file.verilog" enable="1" />
+<File path="audio/loop_store.v" type="file.verilog" enable="1" />
+<File path="audio/loop_transport.v" type="file.verilog" enable="1" />
+<File path="src/loop_ddr_cdc.v" type="file.verilog" enable="1" />
+<File path="src/loop_ddr_board.v" type="file.verilog" enable="1" />
+<File path="src/apb_loop.v" type="file.verilog" enable="1" />
+<File path="ddr/Tang_DDR_B_400.v" type="file.verilog" enable="1" />
+<File path="ddr/loop_ddr_pll.v" type="file.verilog" enable="1" />
+<File path="ddr/loop_ddr_pll_mod.v" type="file.verilog" enable="1" />
+<File path="ddr/loop_ddr_pll_init.v" type="file.verilog" enable="1" />
+
+<File path="audio/console_performance_switch.v" type="file.verilog" enable="1" />
+<File path="audio/console_mailbox.v" type="file.verilog" enable="1" />
+<File path="audio/console_touch_fifo.v" type="file.verilog" enable="1" />
+<File path="audio/apb_console.v" type="file.verilog" enable="1" />
+<File path="audio/console_fft_store.v" type="file.verilog" enable="1" />
+<File path="audio/console_test_source.v" type="file.verilog" enable="1" />
+<File path="audio/console_video.v" type="file.verilog" enable="1" />
+<File path="audio/lissajous_trace.v" type="file.verilog" enable="1" />
+<File path="audio/lissajous_phase_bank12.v" type="file.verilog" enable="1" />
+
+<File path="audio/sine_quarter.v" type="file.verilog" enable="1" />
+<File path="src/usb_a_touch.v" type="file.verilog" enable="1" />
+<File path="src/touch_snapshot_cdc.v" type="file.verilog" enable="1" />
+<File path="src/usba_touch/usb_packet_link.v" type="file.verilog" enable="1" />
+<File path="src/usba_touch/usb_ep0_control.v" type="file.verilog" enable="1" />
+<File path="src/usba_touch/usb_camera_probe.v" type="file.verilog" enable="1" />
+<File path="src/usba_touch/usb_hid_probe.v" type="file.verilog" enable="1" />
+<File path="src/usba_touch/hid_413d_touch.v" type="file.verilog" enable="1" />
+
+<File path="src/apb_theremin.v" type="file.verilog" enable="1" />
+<File path="audio/theremin_voice_mixer.v" type="file.verilog" enable="1" />
+<File path="src/gowin_pll.v" type="file.verilog" enable="1" />
+<File path="src/usb_pll.v" type="file.verilog" enable="1" />
+<File path="src/riscv_ae350_soc/riscv_ae350_soc.v" type="file.verilog" enable="1" />
+<File path="src/apb_usb_bridge.v" type="file.verilog" enable="1" />
+<File path="src/usb_host_subsystem.v" type="file.verilog" enable="1" />
+<File path="src/dual_usb_host.v" type="file.verilog" enable="1" />
+<File path="src/top.v" type="file.verilog" enable="1" />
+<File path="src/apb_response_slice.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_host/src_v/usbh_crc16.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_host/src_v/usbh_crc5.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_host/src_v/usbh_fifo.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_host/src_v/usbh_host.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_host/src_v/usbh_sie.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_fs_phy/src_v/usb_fs_phy.v" type="file.verilog" enable="1" />
+<File path="../vendor/core_usb_fs_phy/src_v/usb_transceiver.v" type="file.verilog" enable="1" />
+<File path="src/midi_audio.cst" type="file.cst" enable="1" />
+<File path="src/midi_audio.sdc" type="file.sdc" enable="1" />
+<File path="src/apb_audio_events.v" type="file.verilog" enable="1" /><File path="audio/ADSR.v" type="file.verilog" enable="1" /><File path="audio/AGC_32.v" type="file.verilog" enable="1" /><File path="audio/audio_loop.v" type="file.verilog" enable="1" /><File path="audio/board_top.v" type="file.verilog" enable="1" /><File path="audio/ch569_touch_if.v" type="file.verilog" enable="1" /><File path="audio/compact_dds.v" type="file.verilog" enable="1" /><File path="audio/compact_envelope.v" type="file.verilog" enable="1" /><File path="audio/compact_event_match.v" type="file.verilog" enable="1" /><File path="audio/compact_iir.v" type="file.verilog" enable="1" /><File path="audio/drum_compact_top.v" type="file.verilog" enable="1" /><File path="audio/dvi_tx_clk_drv.v" type="file.verilog" enable="1" /><File path="audio/dvi_tx_tmds_enc.v" type="file.verilog" enable="1" /><File path="audio/dvi_tx_tmds_phy.v" type="file.verilog" enable="1" /><File path="audio/dvi_tx_top.v" type="file.verilog" enable="1" /><File path="audio/eq_pre.v" type="file.verilog" enable="1" /><File path="audio/fft_analyzer.v" type="file.verilog" enable="1" /><File path="audio/fft_channel.v" type="file.verilog" enable="1" /><File path="audio/gowin_pll.v" type="file.verilog" enable="1" /><File path="audio/gowin_pll_1080p.v" type="file.verilog" enable="1" /><File path="audio/horn_body.v" type="file.verilog" enable="1" /><File path="audio/horn_compact_top.v" type="file.verilog" enable="1" /><File path="audio/horn_envelopes.v" type="file.verilog" enable="1" /><File path="audio/horn_modal.v" type="file.verilog" enable="1" /><File path="audio/horn_noise.v" type="file.verilog" enable="1" /><File path="audio/i2s_input_gain_top.v" type="file.verilog" enable="1" /><File path="audio/i2s_rx24_stereo.v" type="file.verilog" enable="1" /><File path="audio/iis.v" type="file.verilog" enable="1" /><File path="audio/instrument_key_router.v" type="file.verilog" enable="1" /><File path="audio/midi_audio_control.v" type="file.verilog" enable="1" /><File path="audio/midi_pitch_rotate.v" type="file.verilog" enable="1" /><File path="audio/modal_tail_control.v" type="file.verilog" enable="1" /><File path="audio/piano_compact_top.v" type="file.verilog" enable="1" /><File path="audio/piano_modal_engine.v" type="file.verilog" enable="1" /><File path="audio/piano_noise_engine.v" type="file.verilog" enable="1" /><File path="audio/piano_scheduler.v" type="file.verilog" enable="1" /><File path="audio/pll_init.v" type="file.verilog" enable="1" /><File path="audio/spec_snapshot.v" type="file.verilog" enable="1" /><File path="audio/synth_compact_top.v" type="file.verilog" enable="1" /><File path="audio/top.v" type="file.verilog" enable="1" /><File path="audio/ui_font.v" type="file.verilog" enable="1" /><File path="audio/video_timing_ctrl.v" type="file.verilog" enable="1" /><File path="audio/vis_bars.v" type="file.verilog" enable="1" /><File path="audio/gowin_pll_mod.v" type="file.verilog" enable="1" /><File path="audio/ADD_32.v" type="file.verilog" enable="1" /><File path="audio/stereo_gain24_to16.v" type="file.verilog" enable="1" /><File path="audio/bram.v" type="file.verilog" enable="1" /><File path="audio/mixing.v" type="file.verilog" enable="1" /><File path="audio/Stereo.v" type="file.verilog" enable="1" /></FileList></Project>

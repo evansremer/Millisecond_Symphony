@@ -1,0 +1,43 @@
+// Tang Mega 138K PG484A + NEO Dock 31004.
+// Only ports used by this minimal AE350 UART project are constrained.
+IO_LOC "sys_clk"   V22;
+IO_PORT "sys_clk"  IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+IO_LOC "sys_rst_n" AA13;
+IO_PORT "sys_rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+IO_LOC "uart_tx"   U15;
+IO_PORT "uart_tx"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "uart_rx"   V14;
+IO_PORT "uart_rx"  IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+//IO_LOC "uart_tx"   C19;
+//IO_PORT "uart_tx"  IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+//IO_LOC "uart_rx"   D19;
+//IO_PORT "uart_rx"  IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+INS_LOC "u_pll/PLL_inst" PLL_R[0];
+// NEO 31004 schematic pages 7 and 19: PMOD1 connector J8.
+// Keep FPGA configuration JTAG T13/U13/V12/R13 untouched.
+IO_LOC "cpu_jtag_tck" AB21; // J8-9, PMOD1_IO2
+IO_PORT "cpu_jtag_tck" IO_TYPE=LVCMOS33 PULL_MODE=DOWN BANK_VCCIO=3.3;
+IO_LOC "cpu_jtag_tms" AB22; // J8-10, PMOD1_IO3
+IO_PORT "cpu_jtag_tms" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+IO_LOC "cpu_jtag_tdi" AA20; // J8-7, PMOD1_IO4
+IO_PORT "cpu_jtag_tdi" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+IO_LOC "cpu_jtag_tdo" AA21; // J8-8, PMOD1_IO5
+IO_PORT "cpu_jtag_tdo" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=4 BANK_VCCIO=3.3;
+IO_LOC "cpu_jtag_trst_n" AA19; // J8-5, PMOD1_IO6
+IO_PORT "cpu_jtag_trst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// J9/PMOD0 with the user's module directly fitted to J9.
+// 2026-10-26: the known full-speed CH345T drives the old logical DN high
+// in BOTH sockets; unplugging returns both lines low. Swap each pair to
+// match the measured physical orientation (do not infer P/N from photos).
+// Required external USB host 15k pulldowns must be verified on the module.
+IO_LOC "usb1_dp" T21;
+IO_PORT "usb1_dp" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "usb1_dn" U21;
+IO_PORT "usb1_dn" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "usb2_dp" P19;
+IO_PORT "usb2_dp" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "usb2_dn" R19;
+IO_PORT "usb2_dn" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=8 BANK_VCCIO=3.3;

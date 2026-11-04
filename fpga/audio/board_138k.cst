@@ -1,0 +1,81 @@
+// Tang Mega 138K - single-key song demo, board level constraints.
+// Pin locations follow the verified 440x1920 project (HDMI + clk) and the
+// Tang Mega NEO Dock-138K schematic (user keys). Do not invent pin numbers.
+
+// ---- HDMI differential pairs (copied from the verified project) ---------
+IO_LOC "tmds_d_p_0[0]" J14,H14;
+IO_PORT "tmds_d_p_0[0]" IO_TYPE=LVCMOS33D PULL_MODE=NONE DRIVE=8;
+IO_LOC "tmds_d_p_0[1]" J15,H15;
+IO_PORT "tmds_d_p_0[1]" IO_TYPE=LVCMOS33D PULL_MODE=NONE DRIVE=8;
+IO_LOC "tmds_d_p_0[2]" K17,J17;
+IO_PORT "tmds_d_p_0[2]" IO_TYPE=LVCMOS33D PULL_MODE=NONE DRIVE=8;
+IO_LOC "tmds_clk_p_0" G15,G16;
+IO_PORT "tmds_clk_p_0" IO_TYPE=LVCMOS33D PULL_MODE=NONE DRIVE=8;
+
+// ---- 50 MHz reference clock ---------------------------------------------
+IO_LOC "clk" V22;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+
+// ---- Reset: USER_BUTTON2 / KEY2 on the current Dock, active low ---------
+IO_LOC "rst_n" Y12;
+IO_PORT "rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// ---- User keys: current Dock exposes only KEY0 / KEY1 / KEY2 -------------
+// KEY2 (Y12) is used as reset above, so KEY0 and KEY1 drive the song.
+IO_LOC "key[0]" AA13;
+IO_PORT "key[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+IO_LOC "key[1]" AB13;
+IO_PORT "key[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// ---- Audio DAC I2S output ----------------------------------------------
+// WARNING: the current Dock schematic shows a PT8211 DAC, not PCM5102.
+// These locations come from the old audio_138b.cst and are NOT yet confirmed
+// against the Dock schematic. Verify before expecting sound.
+IO_LOC "pcm5102_din" C14;
+IO_PORT "pcm5102_din" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+// External PCM5102 LRCK on J13-1; AA19 is reserved for AE350 JTAG nTRST.
+IO_LOC "pcm5102_lrck" E14;
+IO_PORT "pcm5102_lrck" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "pcm5102_bck" E13;
+IO_PORT "pcm5102_bck" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+// ---- CH569 HSPI（触摸输入，取自已验证的 440x1920 工程）------------------
+IO_LOC "ch569_hspi_clk" L20;
+IO_PORT "ch569_hspi_clk" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=OFF;
+IO_LOC "ch569_hspi_req" N20;
+IO_PORT "ch569_hspi_req" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=OFF;
+IO_LOC "ch569_hspi_rdy" J22;
+IO_PORT "ch569_hspi_rdy" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8;
+IO_LOC "ch569_hspi_vld" L15;
+IO_PORT "ch569_hspi_vld" IO_TYPE=LVCMOS33 PULL_MODE=DOWN DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[0]" G17;
+IO_PORT "ch569_hspi_hd[0]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[1]" H22;
+IO_PORT "ch569_hspi_hd[1]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[2]" L14;
+IO_PORT "ch569_hspi_hd[2]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[3]" K22;
+IO_PORT "ch569_hspi_hd[3]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[4]" K21;
+IO_PORT "ch569_hspi_hd[4]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[5]" K18;
+IO_PORT "ch569_hspi_hd[5]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[6]" L21;
+IO_PORT "ch569_hspi_hd[6]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[7]" M21;
+IO_PORT "ch569_hspi_hd[7]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[8]" M22;
+IO_PORT "ch569_hspi_hd[8]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[9]" N22;
+IO_PORT "ch569_hspi_hd[9]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[10]" L18;
+IO_PORT "ch569_hspi_hd[10]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[11]" M18;
+IO_PORT "ch569_hspi_hd[11]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[12]" N19;
+IO_PORT "ch569_hspi_hd[12]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[13]" N18;
+IO_PORT "ch569_hspi_hd[13]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[14]" K16;
+IO_PORT "ch569_hspi_hd[14]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;
+IO_LOC "ch569_hspi_hd[15]" L16;
+IO_PORT "ch569_hspi_hd[15]" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=OFF;

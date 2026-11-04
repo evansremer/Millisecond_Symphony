@@ -1,0 +1,15 @@
+; JTAG BUILD_LOAD: CPU local memory bases verified from MILMB/MDLMB.
+; Code and initialized data share ILM; stack uses DLM.
+USER_SECTIONS .vector_table
+
+MEM 0xA0000000 ALIGN 256
+{
+    RAM 0xA0000000
+    {
+        LOADADDR NEXT __text_lmastart
+        ADDR NEXT __text_start
+        * ( .vector_table )
+        * ( +ISR , +RO , +RW , +ZI )
+        STACK = 0xA0208000
+    }
+}
